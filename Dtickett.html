@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deutschland-Ticket Demo</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+}
+.topbar {
+  background: #1e2432;
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.content {
+  background: #ffffff;
+  max-width: 450px;
+  margin: 0 auto;
+  box-shadow: 0 0 14px rgba(0,0,0,0.08);
+}
+/* Ticket Header */
+.ticket-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-bottom: 1px solid #e3e3e3;
+}
+.ticket-header img {
+  width: 55px;
+  height: auto;
+}
+.title-block small {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  margin-top: 4px;
+}
+/* QR */
+.qr-block {
+  padding-top: 35px;
+  padding-bottom:5px;
+  display: flex;
+  justify-content: center;
+}
+/* Linie unter QR-Code */
+.line-under-qr {
+  position: absolute;
+  bottom: 0;
+  left: 46%;
+  transform: translateX(-50%);
+  width: 83%;
+  height: 1px;
+  background-color: #ccc;
+}
+/* Linie über Hintergrundbild */
+.line-above-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  height: 1px;
+  background-color: #ccc;
+}
+/* Info */
+.info {
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.info-title {
+  font-weight: bold;
+  margin-top: 16px;
+}
+.muted {
+  color: #777;
+}
+/* Ticket Background Image */
+.ticket-graphic {
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+/* Ticket img */
+.ticket-graphic img {
+  width: 92%;
+  border-radius: 6px;
+}
+/* Button */
+.actions {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: #fafafa;
+  font-size: 15px;
+  text-align: center;
+transform: translateX(-10px);
+}
+.conditions {
+  padding:12px 18px 24px 18px;
+  color:#333;
+  font-size:14px;
+  line-height:1.45;
+}
+.qr-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.qr-img {
+  width: 85%;
+  max-width: 360px;
+  display: block;
+  border: 12px solid white;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.04);
+  z-index: +1;
+}
+
+.moving-dt {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 85px !important;
+  height: auto !important;
+  max-width: 85px !important;
+  object-fit: contain;
+  pointer-events: none;
+  animation: moveDT 3.5s linear infinite alternate;
+}
+@keyframes moveDT {
+  from { left: 0; }
+  to { left: calc(100% - 120px); }
+}
+
+</style>
+</head>
+<body>
+<div class="topbar">← Abo</div>
+<div class="content">
+  <!-- HEADER -->
+  <div class="ticket-header">
+    <!-- DB LOGO -->
+    <img src="db.jpg" alt="DB Logo">
+    <div class="title-block">
+      <strong>Deutschland-Ticket</strong>
+      <small>Gültig vom 01.10.2025</small>
+    </div>
+  </div>
+
+  <!-- QR-CODE -->
+<div class="qr-block">
+  <div class="qr-wrapper" style="position: relative;">
+    <!-- Bewegtes dt.png über QR-Code -->
+    <img src="dt.png" class="moving-dt" alt="">
+    <img src="qr.jpg" class="qr-img" alt="QR Code">
+    <!-- Linie unter dem QR-Code -->
+    <div class="line-under-qr"></div>
+  </div>
+</div>
+
+
+  <!-- INFO -->
+  <div class="info">
+    <div style="font-size:17px; font-weight:bold;">Ronan Reimer</div>
+    <div class="muted">Geburtsdatum: 24.12.2007</div>
+    <div class="info-title">CIV 1080</div>
+    <div class="info-title">Gültigkeit</div>
+    Fahrkarte<br> Deutschland-Ticket<br> 2. Klasse<br> 1 Person (ab 6 Jahre)<br>
+    Von: 01.10.2025, 00:00 Uhr<br> Bis: 01.11.2025, 03:00 Uhr
+    <div class="info-title">Buchungsdetails</div>
+    Gebucht am: 18.09.2025 um 04:10 Uhr<br>
+    Auftrags-Nr: 594895394<br> Position: 00/02<br> Gesamtpreis: 58,00 €
+  </div>
+
+  <div class="conditions">
+    <div style="font-weight:700;margin-bottom:8px;">Konditionen</div>
+    Gilt im angegebenen Geltungszeitraum bundesweit für beliebig viele Fahrten in allen Nahverkehrszügen, Verkehrsverbünden, Landestarifen und teilnehmenden Verkehrsunternehmen.
+    <p style="margin-top:12px;">Nur gültig mit amtlichem Lichtbildausweis. Dieser ist bei der Kontrolle vorzuzeigen. Es gelten die Tarifbedingungen des Deutschlandtarifs.</p>
+    <div style="margin-top:12px;font-size:13px;color:var(--muted);">
+      Ticketcode: <strong style="color:#222">RNGET5RC</strong>
+    </div>
+  </div>
+
+  <!-- TICKET BACKGROUND IMAGE -->
+  <div class="ticket-graphic">
+    <!-- Linie über Hintergrundbild -->
+    <div class="line-above-bg"></div>
+    <img src="12.jpg" alt="Ticket Hintergrundgrafik">
+  </div>
+
+  <!-- Button -->
+  <div class="actions">
+    <div class="btn">Weitere Aktionen</div>
+  </div>
+</div>
+</body>
+</html>
